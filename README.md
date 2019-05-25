@@ -40,3 +40,9 @@ webpack4.0 版本中又增加了很多的默认的配置。
 webpack 中的配置文件的名称是 `webpack.config.js`
 
 当我们在项目中使用 npx webpack 的时候并不知道去打包什么内容，就会去找配置文件
+
+
+3、如何使用npm script 来简化我们的操作
+
+我们在 package.json 里面 在script 里面添加 "build":"webpack" 添加相关命令
+之后使用npm run build 就能够达到同样的效果。
