@@ -14,10 +14,13 @@ module.exports = {
           options: {
             // 占位符
             name: "[name].[ext]", // 这个配置说明 使用原来的文件名称+后缀名
-            outputPath:'images/', // 这里即使我使用了这个  outputPath 选项 url-loader 也不会移动图片 
-            limit:2048
+            outputPath: "images/" // 这里即使我使用了这个  outputPath 选项 url-loader 也不会移动图片
           }
         }
+      },
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader","postcss-loader"]
       }
     ]
   },

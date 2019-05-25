@@ -1,5 +1,5 @@
 import avator from "./longzhu.jpeg";
-import './index.css'
+import './index.scss'
 
 console.log(avator);
 

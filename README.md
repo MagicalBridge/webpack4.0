@@ -119,37 +119,37 @@ module: {
 }
 ```
 
- name:[name].[ext] 这个占位符的使用 输出的意思是 使用原始文件的文件名和后缀.
+name:[name].[ext] 这个占位符的使用 输出的意思是 使用原始文件的文件名和后缀.
 
-
- 现在我们又想将我们的图片打包之后放在了 imgges 文件夹下面 需要再增加一个配置
- module: {
-  rules: [
-    {
-      test: /\.jpe?g$/,
-      use: {
-        loader: "file-loader",
-        options: {
-          name:[name].[ext],
-          outputPath:'images/'
-        },
-      }
-    }
-  ];
+现在我们又想将我们的图片打包之后放在了 imgges 文件夹下面 需要再增加一个配置
+module: {
+rules: [
+{
+test: /\.jpe?g\$/,
+use: {
+loader: "file-loader",
+options: {
+name:[name].[ext],
+outputPath:'images/'
+},
+}
+}
+];
 }
 
- url-loader 在打包的时候并不会将图片 移动而是将图片 转换成一个 base64的图片
- 直接放在我们的boundle.js 里面
+url-loader 在打包的时候并不会将图片 移动而是将图片 转换成一个 base64 的图片
+直接放在我们的 boundle.js 里面
 
- 但是这种使用是不合理的。
+但是这种使用是不合理的。
 
- 如果一个图片非常小, 1-2 kb 使用 base64 非常的合适，不要单独发送一个http请求
- 如果这个图片非常大的话 我们就放在 dist 目录下面 其实这个地方可以做一个配置 limit
+如果一个图片非常小, 1-2 kb 使用 base64 非常的合适，不要单独发送一个 http 请求
+如果这个图片非常大的话 我们就放在 dist 目录下面 其实这个地方可以做一个配置 limit
 
- 如果拥有这个字段意思就是 如果我们的图片的大小 多于 2048个字节的话  就和file-loader 执行
- 一样的操作 
+如果拥有这个字段意思就是 如果我们的图片的大小 多于 2048 个字节的话 就和 file-loader 执行
+一样的操作
 
-  module: {
+```js
+module: {
   rules: [
     {
       test: /\.jpe?g$/,
@@ -164,6 +164,24 @@ module: {
     }
   ];
 }
+```
 
+css-loader 和 style-loader 这两个 loader 是处理 css 必须要的
 
+```js
+module: {
+  rules: [
+    {
+      test: /\.css$/,
+      use: ["style-loader", "css-loader"]
+    }
+  ];
+}
+```
 
+css loader 的作用是 分析css 内容 做一些合并的工作。
+style-loader  作用是 将我们的 样式挂载到我们的 head 标签上面 
+
+sass less stylus 
+
+我们想使用sass 安装 sass 和 node-sass
