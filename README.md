@@ -41,8 +41,105 @@ webpack 中的配置文件的名称是 `webpack.config.js`
 
 当我们在项目中使用 npx webpack 的时候并不知道去打包什么内容，就会去找配置文件
 
+3、如何使用 npm script 来简化我们的操作
 
-3、如何使用npm script 来简化我们的操作
+我们在 package.json 里面 在 script 里面添加 "build":"webpack" 添加相关命令
+之后使用 npm run build 就能够达到同样的效果。
 
-我们在 package.json 里面 在script 里面添加 "build":"webpack" 添加相关命令
-之后使用npm run build 就能够达到同样的效果。
+我们说一下 webpack-cli 的作用就是帮助我们识别 webpack 这个命令 和 npx webpack 这个命令
+
+4、介绍打包信息
+
+```bash
+Hash: 16d2d129eeadac8072f5  // 本地打包的唯一的hash值
+Version: webpack 4.32.2 // 版本指的是 使用的webpack的
+Time: 106ms  // 本次打包使用的时间
+Built at: 2019-05-25 19:27:35 //
+     Asset       Size  Chunks             Chunk Names
+boundle.js  962 bytes       0  [emitted]  main
+Entrypoint main = boundle.js // 输出的  boundle.js
+[0] ./src/index.js 56 bytes {0} [built]
+
+
+WARNING in configuration
+The 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.
+You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/
+
+'mode'选项尚未设置，webpack将回退到此值的'production'。将“mode”选项设置为“development”或“production”以启用每个环境的默认值。您还可以将其设置为“无”以禁用任何默认行为。
+
+```
+
+这里需要注意一个点 如果我们不进行，mode 配置就会出现上述的错误，但是 webpack 默认的配置就是 production
+这样打包出来的代码是 压缩过的，如果我们启用 development 那么打包出来的代码就是 未被压缩的代码。
+
+### webpack 核心概念
+
+1、loader 是什么？ --> 模块解析器
+
+```js
+module: {
+  rules: [
+    {
+      test: /\.jpe?g$/,
+      use: {
+        loader: "file-loader"
+      }
+    }
+  ];
+}
+```
+
+这里有两个小的知识点，一个是 正则中的问好表示可有可无 第二是 test 可以接收一个数组
+
+我在 index.js 中引入了一个 图片 然后使用了 file-loader 进行了图片的打包 本身 webpack
+天生就知道如何打包 js 文件 但是并不知道如何处理图片这种静态资源文件 webpack 会将这总图片文件
+移动到你的目标文件夹中，移动之后 会返回给我们一个值，这就是 file-loader 底层做的事情。
+
+通过上面的这个例子 loader 就是一种打包的方案。
+
+2.如何对图片的打包做额外的配置
+
+比如我们打包完成之后并不想改变图片的名称。
+在配置的 loader 的时候 我们可以增加额外的参数 这些参数我们可以放在
+options 这个配置项里面
+
+```js
+module: {
+  rules: [
+    {
+      test: /\.jpe?g$/,
+      use: {
+        loader: "file-loader",
+        options: {
+          name:[name].[ext]
+        }
+      }
+    }
+  ];
+}
+```
+
+ name:[name].[ext] 这个占位符的使用 输出的意思是 使用原始文件的文件名和后缀.
+
+
+ 现在我们又想将我们的图片打包之后放在了 imgges 文件夹下面 需要再增加一个配置
+ module: {
+  rules: [
+    {
+      test: /\.jpe?g$/,
+      use: {
+        loader: "file-loader",
+        options: {
+          name:[name].[ext],
+          outputPath:'images/'
+        },
+      }
+    }
+  ];
+}
+
+
+
+
+
+
