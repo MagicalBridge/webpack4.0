@@ -1,10 +1,9 @@
-function add(x, y) {
-  console.log(x + y);
-}
-add(2, 3);
-
-import avator from './longzhu.jpeg'
+import avator from "./longzhu.jpeg";
 
 console.log(avator);
 
+var img = new Image();
+img.src = avator;
 
+var root = document.getElementById("root");
+root.append(img);

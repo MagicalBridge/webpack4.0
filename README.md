@@ -138,8 +138,32 @@ module: {
   ];
 }
 
+ url-loader 在打包的时候并不会将图片 移动而是将图片 转换成一个 base64的图片
+ 直接放在我们的boundle.js 里面
 
+ 但是这种使用是不合理的。
 
+ 如果一个图片非常小, 1-2 kb 使用 base64 非常的合适，不要单独发送一个http请求
+ 如果这个图片非常大的话 我们就放在 dist 目录下面 其实这个地方可以做一个配置 limit
+
+ 如果拥有这个字段意思就是 如果我们的图片的大小 多于 2048个字节的话  就和file-loader 执行
+ 一样的操作 
+
+  module: {
+  rules: [
+    {
+      test: /\.jpe?g$/,
+      use: {
+        loader: "url-loader",
+        options: {
+          name:[name].[ext],
+          outputPath:'images/',
+          limit:2048
+        },
+      }
+    }
+  ];
+}
 
 
 
