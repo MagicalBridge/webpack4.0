@@ -6,7 +6,13 @@ const webpack = require('webpack');
 module.exports = {
   mode: "development",
   entry: {
-    main: "./src/index.js"
+    main: "./src/index.js",
+    sub:"./src/index.js"
+  },
+  output: {
+    filename: "[name].js",
+    path: path.resolve(__dirname, "dist"),
+    publicPath:'https://www.bestpay.com'
   },
   module: {
     rules: [
@@ -27,14 +33,10 @@ module.exports = {
       }
     ]
   },
-  output: {
-    filename: "boundle.js",
-    path: path.resolve(__dirname, "dist")
-  },
   plugins: [
     new HtmlWebpackPlugin({
       // 接收一个template 属性 指定一个模板
-      template: path.resolve(__dirname, "src/index.html")
+      template: path.resolve(__dirname, "src/index.html"),
     }),
     // 这个在新版本中使用 是作为一个对象被解构出来的
     new CleanWebpackPlugin(),
