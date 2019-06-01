@@ -185,3 +185,15 @@ style-loader  作用是 将我们的 样式挂载到我们的 head 标签上面
 sass less stylus 
 
 我们想使用sass 安装 sass 和 node-sass
+
+
+### webpack 的 plugin 
+
+1、为了方便生成html 我们和对于html 模板进行配置 
+html-webpack-plugin 会在打包之后自动生成一个html文件并把打包生成的js自动引入到这个html 文件中
+从这里我们可以看到 plugin 可以在webpack 运行在某一个时刻的时候帮你我们增加一些事情。
+
+
+2、如果我们想要清空之前打包的文件。
+
+

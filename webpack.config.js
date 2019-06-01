@@ -1,4 +1,7 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const webpack = require('webpack');
 
 module.exports = {
   mode: "development",
@@ -20,12 +23,22 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader","postcss-loader"]
+        use: ["style-loader", "css-loader", "sass-loader", "postcss-loader"]
       }
     ]
   },
   output: {
     filename: "boundle.js",
     path: path.resolve(__dirname, "dist")
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      // 接收一个template 属性 指定一个模板
+      template: path.resolve(__dirname, "src/index.html")
+    }),
+    // 这个在新版本中使用 是作为一个对象被解构出来的
+    new CleanWebpackPlugin(),
+    // 显示进程
+    new webpack.ProgressPlugin(),
+  ]
 };
