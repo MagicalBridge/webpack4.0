@@ -5,14 +5,14 @@ const webpack = require('webpack');
 
 module.exports = {
   mode: "development",
+  devtool:'source-map',
   entry: {
-    main: "./src/index.js",
-    sub:"./src/index.js"
+    main: "./src/index.js"
   },
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
-    publicPath:'https://www.bestpay.com'
+    publicPath:'./'
   },
   module: {
     rules: [

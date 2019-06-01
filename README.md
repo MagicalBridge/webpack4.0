@@ -206,6 +206,24 @@ html-webpack-plugin 会在打包之后自动生成一个html文件并把打包�
 需要在output 里面做一些配置工作
 
 
+### 学习sourceMap
+1.其实这是一种映射关系,当我们代码写错的时候, 如果不可以sourceMap
+那么报错会在最终的 打包的终态文件夹下面报错，但是实际上我们想要的是在
+我们书写的那个文件中定位，这样才能方便寻找。
+
+在 配置中添加   devtool:'none', 这一个配置是关闭 这个sourceMap
+devtool:'source-map', 添加这个 可以进行定位
+这个配置在 react脚手架中看到的比较多。
+
+
+一般来说 最佳实践是：在生产环境我们是禁止使用 source-map的
+如果非得要使用我们可以使用 cheap-mudule-source-map
+开发环境我们使用 cheap-mudule-eval-source-map
+
+
+
+
+
 
 
 
