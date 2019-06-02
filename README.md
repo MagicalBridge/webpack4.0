@@ -227,6 +227,11 @@ package  中将这个build 配置这样的属性  "build": "webpack --watch"
 
 ### 学习使用webpack-dev-server
 
+webpack-dev-server 在使用中 比单纯的webpack --watch 要方便的很多
+因此也是现在主流的脚手架正在使用的plugin
+
+
+
 
 
 
