@@ -221,6 +221,12 @@ devtool:'source-map', 添加这个 可以进行定位
 开发环境我们使用 cheap-mudule-eval-source-map
 
 
+### webpack 中我们使用 --watch 来监听变化
+
+package  中将这个build 配置这样的属性  "build": "webpack --watch"
+
+### 学习使用webpack-dev-server
+
 
 
 

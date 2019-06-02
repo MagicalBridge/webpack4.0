@@ -7,4 +7,5 @@ var img = new Image();
 img.src = avator;
 
 var root = document.getElementById("root");
-rootr.append(img);
+root.append(img);
+

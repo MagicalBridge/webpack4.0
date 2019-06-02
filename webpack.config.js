@@ -1,18 +1,22 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const webpack = require('webpack');
+const webpack = require("webpack");
 
 module.exports = {
   mode: "development",
-  devtool:'source-map',
+  devtool: "source-map",
   entry: {
     main: "./src/index.js"
   },
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
-    publicPath:'./'
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, "dist"),
+    open:true,
+    port:9090
   },
   module: {
     rules: [
@@ -36,11 +40,11 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       // 接收一个template 属性 指定一个模板
-      template: path.resolve(__dirname, "src/index.html"),
+      template: path.resolve(__dirname, "src/index.html")
     }),
     // 这个在新版本中使用 是作为一个对象被解构出来的
     new CleanWebpackPlugin(),
     // 显示进程
-    new webpack.ProgressPlugin(),
+    new webpack.ProgressPlugin()
   ]
 };

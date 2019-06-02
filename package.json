@@ -4,7 +4,8 @@
   "description": "this is webpack4.0 learning git",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --watch",
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.32.2",
-    "webpack-cli": "^3.3.2"
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.5.0"
   }
 }
