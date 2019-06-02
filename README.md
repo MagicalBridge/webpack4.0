@@ -241,6 +241,8 @@ webpack-dev-server 在使用中 比单纯的webpack --watch 要方便的很多
 首先我们需要安装 express  和 webpack-dev-middleware 这两个应用
 npm i express webpack-dev-middleware -D
 
+### 学习 HMR 热模块更新
+
 
 
 

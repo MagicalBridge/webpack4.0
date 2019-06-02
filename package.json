@@ -4,10 +4,7 @@
   "description": "this is webpack4.0 learning git",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server",
-    "middleware": "node server.js"
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
