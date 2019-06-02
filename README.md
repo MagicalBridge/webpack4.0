@@ -230,8 +230,16 @@ package  中将这个build 配置这样的属性  "build": "webpack --watch"
 webpack-dev-server 在使用中 比单纯的webpack --watch 要方便的很多
 因此也是现在主流的脚手架正在使用的plugin
 
+### 学习middleware
+
+在起初的时候 webpack-dev-server 并不成熟，在脚手架使用的
+时候并不好用，很多人就是使用webpack 集合middleware 这种方式
+来实现一个版本的middleware 随着时间的发展，webpack-dev-server
+越发成熟之后，就慢慢的不使用了，但是还是需要知道。
 
 
+首先我们需要安装 express  和 webpack-dev-middleware 这两个应用
+npm i express webpack-dev-middleware -D
 
 
 
