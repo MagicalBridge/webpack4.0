@@ -4,22 +4,29 @@ this is webpack4.0 learning git
 
 ### webpack 搭建环境
 
-webpack 本质上是用 node 构建的模块打包工具
-初始化启动目录结构 npm init
+webpack本质上是基于node环境构建的模块打包工具，我们想要使用npm做为包管理工具，初始化项目目录结构, 执行命令
+
+```bash
+npm init
+```
 
 1、安装 webpack 有两种方式
 
-第一种: 全局安装  
- `sudo npm install webpack webpack-cli -g`
+第一种: 全局安装:
+```bash
+sudo npm install webpack webpack-cli -g
+```
 
 安装成功之后使用 `webpack -v` 能够查看版本号
 
-这种安装的方式 是有一些弊端的。
+这种安装的方式是有一些弊端的，主要是不够灵活, 在真实的开发场景中, 可能会出现不同的项目使用不同版本的webpack情况。
 
 第二种：项目中安装
 
-`npm install webpack webpack-cli --save-dev`
-`npm install webpack webpack-cli -D`
+```bash
+npm install webpack webpack-cli --save-dev
+npm install webpack webpack-cli -D
+```
 
 以上两种写法是等价的
 
