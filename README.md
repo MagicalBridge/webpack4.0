@@ -24,29 +24,24 @@ sudo npm install webpack webpack-cli -g
 第二种：项目中安装
 
 ```bash
+# 下面两种写法是等价的
 npm install webpack webpack-cli --save-dev
 npm install webpack webpack-cli -D
 ```
 
-以上两种写法是等价的
+安装完成之后我们尝试使用 `webpack -v` 去查看版本号 发现 `command not found: webpack` 这是因为执行 webpack -v 的时候会默认的向全局寻找 webpack 但是我们全局没有 webpack
 
-安装完成之后我们尝试使用 `webpack -v` 去查看版本号 发现 `command not found: webpack` 这是因为
-执行 webpack -v 的时候会默认的向全局寻找 webpack 但是我们全局没有 webpack
-
-我们可以使用 npx 来达成同样的目标 `npx webpack -v` 4.32.2
-npx 这个命令会帮助我们在当前项目的 `node_modules` 里面寻找我们的 weback 模块
+我们可以使用 npx 来达成同样的目标 `npx webpack -v` 4.32.2, npx 这个命令会帮助我们在当前项目的 `node_modules` 里面寻找我们的 webpack 模块
 
 我们如果想要安装指定版本的 webpack 怎么操作呢？
 
-首先我们使用 `npm info` 来查看 webpack 的相关的包的信息
+首先我们使用 `npm info` 来查看 webpack 的相关的包的信息, `npm info webpack` 查看出来的 3.0 版本的最后是 3.12
 
-`npm info webpack` 查看出来的 3.0 版本的最后是 3.12
+2、了解webpack的配置文件
 
-2、webpack 的配置文件
-webpack4.0 版本中又增加了很多的默认的配置。
-webpack 中的配置文件的名称是 `webpack.config.js`
+webpack4.0 版本中又增加了很多的默认的配置，webpack中的配置文件的名称是 `webpack.config.js`
 
-当我们在项目中使用 npx webpack 的时候并不知道去打包什么内容，就会去找配置文件
+当我们在项目中使用 npx webpack 的时候并不知道去打包什么内容，就会去找配置文件, 此时如果配置文件中没有写相关的内容，webpack 就不知道入口文件在哪里，此时会报错，为了能够正确打包文件，我们需要更加深入的了解webpack.config.js的配置。
 
 3、如何使用 npm script 来简化我们的操作
 

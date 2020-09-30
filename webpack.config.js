@@ -5,14 +5,15 @@ const webpack = require('webpack');
 
 module.exports = {
   mode: "development",
+  // entry: 标识的是项目的入口文件
   entry: {
     main: "./src/index.js",
-    sub:"./src/index.js"
+    sub: "./src/index.js"
   },
   output: {
     filename: "[name].js",
-    path: path.resolve(__dirname, "dist"),
-    publicPath:'https://www.bestpay.com'
+    path: path.resolve(__dirname, "dist"), // 打包之后的文件的输出目录
+    publicPath: 'https://www.bestpay.com'
   },
   module: {
     rules: [
