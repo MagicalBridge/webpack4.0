@@ -41,6 +41,13 @@ webpack 中的配置文件的名称是 `webpack.config.js`
 
 当我们在项目中使用 npx webpack 的时候并不知道去打包什么内容，就会去找配置文件
 
+找不到配置文件 就会去找 node_modules 里面的 webpack bin 目录下面的 webpack.js
+
+webpack 是支持模块化的，我们创建一个 a.js 将其作为一个模块导入到 index.js中，看下效果。
+
+
+webpack 配置文件我们起名叫做 webpack.config.js
+
 3、如何使用 npm script 来简化我们的操作
 
 我们在 package.json 里面 在 script 里面添加 "build":"webpack" 添加相关命令

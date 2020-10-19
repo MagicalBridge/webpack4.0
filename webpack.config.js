@@ -1,27 +1,10 @@
-const path = require("path");
-
+// webpack 是使用node写出来的，因此 node 写法
+let path = require('path');
 module.exports = {
-  mode: "development",
-  entry: {
-    main: "./src/index.js"
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(jpe?g|png|gif)$/,
-        use: {
-          loader: "file-loader",
-          options: {
-            // 占位符
-            name: "[name].[ext]", // 这个配置说明 使用原来的文件名称+后缀名
-            outputPath:'images/'
-          }
-        }
-      }
-    ]
-  },
+  mode: 'development', // development 开发模式  production 生产模式
+  entry: './src/index.js', // 入口
   output: {
-    filename: "[name].[hash:8].js",
-    path: path.resolve(__dirname, "dist")
+    filename: 'bundle.js', // 打包后的文件名称
+    path: path.resolve(__dirname, 'dist'),
   }
-};
+}
