@@ -53,6 +53,10 @@ webpack 配置文件我们起名叫做 webpack.config.js
 我们在 package.json 里面 在 script 里面添加 "build":"webpack" 添加相关命令
 之后使用 npm run build 就能够达到同样的效果。
 
+如果我们的配置文件的名字不是 `webpack.config.js` 那么 我们可以添加 --config命令
+
+> "build":"webpack --config webpack.config.my.js" 这种形式就能指定配置文件。
+
 我们说一下 webpack-cli 的作用就是帮助我们识别 webpack 这个命令 和 npx webpack 这个命令
 
 4、介绍打包信息
@@ -78,6 +82,27 @@ You can also set it to 'none' to disable any default behavior. Learn more: https
 
 这里需要注意一个点 如果我们不进行，mode 配置就会出现上述的错误，但是 webpack 默认的配置就是 production
 这样打包出来的代码是 压缩过的，如果我们启用 development 那么打包出来的代码就是 未被压缩的代码。
+
+### webpack-dev-server 
+
+这个插件是基于express编写的插件，可以在开发中启动服务。
+
+默认情况下, 这个插件会以当前的根目录启动服务。
+
+当然我们是可以对其进行配置的。
+
+配置在devServe对象
+```json
+devServer: { // 开发服务器配置
+  port: 8080, // 端口
+  progress: true, // 进度条
+  contentBase: './build', // 基于哪一个文件夹启动服务
+  compress: true, // 启动压缩
+  open: true, // 是否自动打开浏览器
+}
+```
+
+
 
 ### webpack 核心概念
 
