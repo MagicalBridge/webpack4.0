@@ -102,7 +102,8 @@ devServer: { // 开发服务器配置
 }
 ```
 
-
+### html-webpack-plugin
+首先安装这个插件
 
 ### webpack 核心概念
 
