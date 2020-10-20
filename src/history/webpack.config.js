@@ -3,6 +3,13 @@ let path = require('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  devServer: { // 开发服务器配置
+    port: 8080, // 端口
+    progress: true, // 进度条
+    contentBase: './build', // 基于哪一个文件夹启动服务
+    compress: true, // 启动压缩
+    open: true, // 是否自动打开浏览器
+  },
   mode: 'development', // development 开发模式  production 生产模式
   entry: './src/index.js', // 入口
   output: {
@@ -19,27 +26,5 @@ module.exports = {
       },
       hash: true, // hash 防止缓存
     })
-  ],
-  module: {
-    // 这里面都是一些loader的配置规则
-    rules: [ // 规则 css-loader 
-      {
-        test: /.css$/, use: [
-          {
-            loader: 'style-loader',
-          },
-          'css-loader'
-        ]
-      },
-      {
-        test: /.less$/, use: [
-          {
-            loader: 'style-loader',
-          },
-          'css-loader',
-          'less-loader' // 处理 less 文件
-        ]
-      }
-    ]
-  }
+  ]
 }

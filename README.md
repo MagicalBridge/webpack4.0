@@ -103,11 +103,32 @@ devServer: { // 开发服务器配置
 ```
 
 ### html-webpack-plugin
-首先安装这个插件
+首先安装这个插件 这个插件的一些常用配置:
+```js
+new HtmlWebpackPlugin({
+  template: './src/index.html', // 指定以哪个文件为模板
+  filename: 'index.html', // 打包后的文件也叫做index.html
+  minify: {
+    removeAttributeQuotes: true, // 去除双引号
+    collapseWhitespace: true, // 折叠空行
+  },
+  hash: true, // hash 防止缓存
+})
+```
 
 ### webpack 核心概念
 
 1、loader 是什么？ --> 模块解析器
+
+loader的一个特点就是希望职责单一。
+
+css-loader 和 style-loader 有什么样的区别？
+
+处理css的时候我们经常会用到两个loader，一个是css-loader, 一个是style-loader。
+其中 css-loader主要为了解决在css 中我们写的那种 @import 语法 style-loader主要为了
+将我们写好的css 插入到页面中。
+
+
 
 ```js
 module: {
