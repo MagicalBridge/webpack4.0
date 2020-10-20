@@ -77,7 +77,6 @@ The 'mode' option has not been set, webpack will fallback to 'production' for th
 You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/
 
 'mode'选项尚未设置，webpack将回退到此值的'production'。将“mode”选项设置为“development”或“production”以启用每个环境的默认值。您还可以将其设置为“无”以禁用任何默认行为。
-
 ```
 
 这里需要注意一个点 如果我们不进行，mode 配置就会出现上述的错误，但是 webpack 默认的配置就是 production
@@ -129,6 +128,48 @@ css-loader 和 style-loader 有什么样的区别？
 将我们写好的css 插入到页面中。
 
 
+为了解析css  为了将css 插入到页面中 为了解析 less 我们安装了 三个loader
+
+```js
+module: {
+  // 这里面都是一些loader的配置规则
+  rules: [ // 规则 css-loader 
+    {
+      test: /.css$/, use: [
+        {
+          loader: 'style-loader',
+        },
+        'css-loader'
+      ]
+    },
+    {
+      test: /.less$/, use: [
+        {
+          loader: 'style-loader',
+        },
+        'css-loader',
+        'less-loader' // 处理 less 文件
+      ]
+    }
+  ]
+}
+```
+
+### mini-css-extract-plugin
+
+该插件将css提取到单独的文件中，它为每一个包含css的JS文件创建一个css文件，它支持css和sourceMap的
+按需加载。
+
+```js
+let MiniCssExtractPlugin = require('mini-css-extract-plugin');
+....
+plugin:[
+  new MiniCssExtractPlugin({
+    filename: 'main.css'
+  })
+],
+
+```
 
 ```js
 module: {

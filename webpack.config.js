@@ -1,6 +1,7 @@
 // webpack 是使用node写出来的，因此 node 写法
 let path = require('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
+let MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development', // development 开发模式  production 生产模式
@@ -18,24 +19,31 @@ module.exports = {
         collapseWhitespace: true, // 折叠空行
       },
       hash: true, // hash 防止缓存
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'main.css'
     })
   ],
   module: {
     // 这里面都是一些loader的配置规则
     rules: [ // 规则 css-loader 
       {
-        test: /.css$/, use: [
-          {
-            loader: 'style-loader',
-          },
+        test: /.css$/, 
+        use: [
+          // {
+          //   loader: 'style-loader',
+          // },
+          MiniCssExtractPlugin.loader,
           'css-loader'
         ]
       },
       {
-        test: /.less$/, use: [
-          {
-            loader: 'style-loader',
-          },
+        test: /.less$/, 
+        use: [
+          // {
+          //   loader: 'style-loader',
+          // },
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'less-loader' // 处理 less 文件
         ]
