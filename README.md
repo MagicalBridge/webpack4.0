@@ -167,15 +167,14 @@ plugin:[
   new MiniCssExtractPlugin({
     filename: 'main.css'
   })
-],
-
+]
 ```
 
 ### postcss autoprefier 
 这两个插件需要配合使用，做到样式的自动添加前缀。
 
-### 压缩css
-optimize-css-assets-webpack-plugin 这个插件
+### 压缩css optimize-css-assets-webpack-plugin
+optimize-css-assets-webpack-plugin 这个插件用于优化\最小化CSS资源，用于webpack4.0工程架构
 
 ```js
 module: {
