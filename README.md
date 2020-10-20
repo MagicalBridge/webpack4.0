@@ -171,6 +171,12 @@ plugin:[
 
 ```
 
+### postcss autoprefier 
+这两个插件需要配合使用，做到样式的自动添加前缀。
+
+### 压缩css
+optimize-css-assets-webpack-plugin 这个插件
+
 ```js
 module: {
   rules: [

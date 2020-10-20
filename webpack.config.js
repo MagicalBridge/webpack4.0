@@ -34,7 +34,8 @@ module.exports = {
           //   loader: 'style-loader',
           // },
           MiniCssExtractPlugin.loader,
-          'css-loader'
+          'css-loader',
+          'postcss-loader'
         ]
       },
       {
@@ -45,7 +46,8 @@ module.exports = {
           // },
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'less-loader' // 处理 less 文件
+          'less-loader', // 处理 less 文件
+          'postcss-loader',
         ]
       }
     ]
