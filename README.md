@@ -189,6 +189,11 @@ module: {
 }
 ```
 
+### Babel 
+babel的模块非常多 babel-loader 模块加载器  
+  @babel/core   核心模块
+  @babel/preset-env  配置转化的标准
+
 这里有两个小的知识点，一个是 正则中的问好表示可有可无 第二是 test 可以接收一个数组
 
 我在 index.js 中引入了一个 图片 然后使用了 file-loader 进行了图片的打包 本身 webpack
